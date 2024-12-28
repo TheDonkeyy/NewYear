@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeySadqua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+        #main {
+            width: 90%;
+            height: auto; /* Use auto height to adapt to content */
+            background-color: black;
+            padding-bottom: 20px; /* Space around content */
+        }
+        #photo {
+            width: 100%; 
+            height: 500px;
+            background: url('pic.png') no-repeat center center;
+            background-size: contain;
+            margin-top: 30px;
+        }
+        #msg {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px; /* Space below the photo */
+            text-align: center;
+            gap: 10px; /* Space between lines */
+        }
+        #special-msg {
+            margin-top: 20px; /* Space below the msg div */
+            font-family: "Dancing Script", cursive;
+            font-weight: 400;
+            font-size: x-large;
+            color: black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping of words if needed */
+            gap: 10px; /* Add gap between words */
+        }
+        #special-msg span.word {
+            display: flex; /* Ensure characters in a word are grouped together */
+        }
+        #special-msg span.char {
+            color: black; /* Initially black */
+            transition: color 0.3s ease-in-out; /* Smooth transition */
+        }
+        #special-msg span.char.active {
+            color: white; /* Change color to white when class is added */
+        }
+        p {
+            font-family: "Dancing Script", cursive; /* Correct font-family */
+            font-weight: 400; /* Font weight matching Google Fonts options */
+            color: whitesmoke;
+            font-size: x-large;
+            margin: 0; /* Remove default margin for better control */
+        }
+    </style>
+</head>
+<body onload="sound()">
+    <div id="main">
+        <div id="photo"></div>
+        <div id="msg">
+            <p>Sadqua & Furkan</p>
+            <p>Our first chat sky 29 March 2021</p>
+        </div>
+        <div id="special-msg">
+            <!-- Wrap words in spans with class 'word', and individual characters in spans with class 'char' -->
+            <span class="word">
+                <span class="char">S</span><span class="char">k</span><span class="char">y</span>
+            </span>
+            <span class="word">
+                <span class="char">i</span><span class="char">s</span>
+            </span>
+            <span class="word">
+                <span class="char">b</span><span class="char">e</span><span class="char">a</span><span class="char">u</span><span class="char">t</span><span class="char">i</span><span class="char">f</span><span class="char">u</span><span class="char">l</span>,
+            </span>
+            <span class="word">
+                <span class="char">b</span><span class="char">u</span><span class="char">t</span>
+            </span>
+            <span class="word">
+                <span class="char">y</span><span class="char">o</span><span class="char">u</span>
+            </span>
+            <span class="word">
+                <span class="char">a</span><span class="char">r</span><span class="char">e</span>
+            </span>
+            <span class="word">
+                <span class="char">m</span><span class="char">o</span><span class="char">r</span><span class="char">e</span>
+            </span>
+            <span class="word">
+                <span class="char">b</span><span class="char">e</span><span class="char">a</span><span class="char">u</span><span class="char">t</span><span class="char">i</span><span class="char">f</span><span class="char">u</span><span class="char">l</span>
+            </span>
+            <span class="word">
+                <span class="char">t</span><span class="char">h</span><span class="char">a</span><span class="char">n</span>
+            </span>
+            <span class="word">
+                <span class="char">t</span><span class="char">h</span><span class="char">i</span><span class="char">s</span>
+            </span>
+            <span class="word">
+                <span class="char">s</span><span class="char">k</span><span class="char">y</span>.
+            </span>
+        </div>
+    </div>
+    <script>
+        function sound() {
+            var audio = new Audio('ong.mp3');
+            audio.play();
+        }
+
+        // Add hover effect that persists using JavaScript
+        document.querySelectorAll('#special-msg span.char').forEach(char => {
+        // For hover
+        char.addEventListener('mouseover', () => {
+            char.classList.add('active'); // Add class on hover
+        });
+
+        // For touch devices
+        char.addEventListener('touchstart', () => {
+            char.classList.add('active'); // Add class on touch
+        });
+    });
+    </script>
+</body>
+</html>
