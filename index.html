@@ -19,30 +19,34 @@
             flex-direction: column;
             padding-top: 10px;
         }
+    
         #main {
             width: 90%;
-            height: auto; /* Use auto height to adapt to content */
+            height: auto;
             background-color: black;
-            padding-bottom: 20px; /* Space around content */
+            padding-bottom: 20px;
         }
+    
         #photo {
-            width: 100%; 
+            width: 100%;
             height: 500px;
             background: url('pic.png') no-repeat center center;
             background-size: contain;
             margin-top: 30px;
         }
+    
         #msg {
             display: flex;
-            flex-direction: column; /* Stack items vertically */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 10px; /* Space below the photo */
+            margin-top: 10px;
             text-align: center;
-            gap: 10px; /* Space between lines */
+            gap: 10px;
         }
+    
         #special-msg {
-            margin-top: 20px; /* Space below the msg div */
+            margin-top: 20px;
             font-family: "Dancing Script", cursive;
             font-weight: 400;
             font-size: x-large;
@@ -50,37 +54,60 @@
             text-align: center;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allow wrapping of words if needed */
-            gap: 10px; /* Add gap between words */
+            flex-wrap: wrap;
+            gap: 10px;
         }
+    
         #special-msg span.word {
-            display: flex; /* Ensure characters in a word are grouped together */
+            display: flex;
         }
+    
         #special-msg span.char {
-            color: black; /* Initially black */
-            transition: color 0.3s ease-in-out; /* Smooth transition */
+            color: black;
+            transition: color 0.3s ease-in-out;
         }
+    
         #special-msg span.char.active {
-            color: white; /* Change color to white when class is added */
+            color: white;
         }
+    
         p {
-            font-family: "Dancing Script", cursive; /* Correct font-family */
-            font-weight: 400; /* Font weight matching Google Fonts options */
+            font-family: "Dancing Script", cursive;
+            font-weight: 400;
             color: whitesmoke;
             font-size: x-large;
-            margin: 0; /* Remove default margin for better control */
+            margin: 0;
+        }
+    
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            #photo {
+                margin-top: 10px; /* Reduce top margin */
+                height: 400px; /* Slightly smaller height for mobile */
+            }
+    
+            #msg {
+                margin-top: 5px; /* Reduce margin between photo and text */
+                gap: 5px; /* Reduce space between text lines */
+            }
+    
+            #special-msg {
+                margin-top: 10px; /* Reduce gap below text */
+                font-size: larger; /* Slightly smaller font size for better fit */
+            }
         }
     </style>
+    
 </head>
 <body onload="sound()">
     <div id="main">
         <div id="photo"></div>
         <div id="msg">
-            <p>Sadqua & Furkan</p>
+            <p>Happy New Year</p>
             <p>Our first chat sky 29 March 2021</p>
         </div>
         <div id="special-msg">
-            <!-- Wrap words in spans with class 'word', and individual characters in spans with class 'char' -->
+            <!-- Existing message -->
             <span class="word">
                 <span class="char">S</span><span class="char">k</span><span class="char">y</span>
             </span>
@@ -112,28 +139,75 @@
                 <span class="char">t</span><span class="char">h</span><span class="char">i</span><span class="char">s</span>
             </span>
             <span class="word">
-                <span class="char">s</span><span class="char">k</span><span class="char">y</span>.
+                <span class="char">s</span><span class="char">k</span><span class="char">y</span><span class="char">.</span>
+            </span>
+            <span class="word">
+                <span class="char">H</span><span class="char">a</span><span class="char">p</span><span class="char">p</span><span class="char">y</span>
+            </span>
+            <span class="word">
+                <span class="char">t</span><span class="char">o</span>
+            </span>
+            <span class="word">
+                <span class="char">s</span><span class="char">t</span><span class="char">a</span><span class="char">r</span><span class="char">t</span>
+            </span>
+            <span class="word">
+                <span class="char">t</span><span class="char">h</span><span class="char">i</span><span class="char">s</span>
+            </span>
+            <span class="word">
+                <span class="char">b</span><span class="char">e</span><span class="char">a</span><span class="char">u</span><span class="char">t</span><span class="char">i</span><span class="char">f</span><span class="char">u</span><span class="char">l</span>
+            </span>
+            <span class="word">
+                <span class="char">y</span><span class="char">e</span><span class="char">a</span><span class="char">r</span>
+            </span>
+            <span class="word">
+                <span class="char">w</span><span class="char">i</span><span class="char">t</span><span class="char">h</span>
+            </span>
+            <span class="word">
+                <span class="char">m</span><span class="char">o</span><span class="char">s</span><span class="char">t</span>
+            </span>
+            <span class="word">
+                <span class="char">b</span><span class="char">e</span><span class="char">a</span><span class="char">u</span><span class="char">t</span><span class="char">i</span><span class="char">f</span><span class="char">u</span><span class="char">l</span>
+            </span>
+            <span class="word">
+                <span class="char">g</span><span class="char">i</span><span class="char">r</span><span class="char">l</span><span class="char">.</span>
             </span>
         </div>
+        
     </div>
     <script>
         function sound() {
             var audio = new Audio('ong.mp3');
             audio.play();
         }
-
-        // Add hover effect that persists using JavaScript
+    
+        // Function to check if the device is mobile
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+    
+        // For hover effect on laptops/desktops
         document.querySelectorAll('#special-msg span.char').forEach(char => {
-        // For hover
-        char.addEventListener('mouseover', () => {
-            char.classList.add('active'); // Add class on hover
+            char.addEventListener('mouseover', () => {
+                char.classList.add('active'); // Add class on hover
+            });
+            char.addEventListener('touchstart', () => {
+                char.classList.add('active'); // Add class on touch
+            });
         });
-
-        // For touch devices
-        char.addEventListener('touchstart', () => {
-            char.classList.add('active'); // Add class on touch
-        });
-    });
+    
+        // For automatic sequential animation on mobile devices after 7 seconds
+        if (isMobile()) {
+            setTimeout(() => {
+                const chars = document.querySelectorAll('#special-msg span.char');
+                chars.forEach((char, index) => {
+                    setTimeout(() => {
+                        char.classList.add('active'); // Add class sequentially
+                    }, index * 200); // Delay increases with the index (200ms per character)
+                });
+            }, 7000); // 7 seconds delay before starting animation
+        }
     </script>
+    
+    
 </body>
 </html>
